@@ -44,7 +44,7 @@ class App extends Component {
             {list.map((list) => <li>{list}</li>)}
           </ul>
            <form onSubmit={this.handleSubmit}>
-             <input type ='text' value={this.value} name='list' onKeyDown={this.handleChange} placeholder="Ingresa una tarea y oprime Enter" />     
+             <input type ='text' id="new-task" value={this.value} name='list' onKeyDown={this.handleChange} placeholder="Ingresa una tarea y oprime Enter" />     
            </form>
         </div>
       </div>
