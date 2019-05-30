@@ -7,26 +7,26 @@ class App extends Component {
     super(props);
     this.state = {
       texto: '',
-      list: ['Sacar la ropa', 'Hacer la cama', 'Leer un rato'],
-
+      list: [],
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   handleChange(event){
-      const list = event.target.name
-      const value = event.target.value 
-      this.setState({
-        list: [...this.state.list, value]
-    })
-  }
+   if(event.key==='Enter'){
 
+    const list = event.target.list
+    const value = event.target.value
+    this.setState({
+      list: [...this.state.list,value]
+  })
+  
+   }
+            
+  }
   handleSubmit(event) {
     event.preventDefault();
   }
-
   render() {
     const { list } = this.state
     return (
@@ -34,13 +34,13 @@ class App extends Component {
         <div className="list">
           <h3>Por hacer:</h3>
           <ul className="todo"> 
-           <li>Sacar la ropa</li>
+            <li>Sacar la ropa</li>
             <li>Hacer la cama</li>
             <li>Leer un rato</li>
             {list.map((list) => <li>{list}</li>)}
           </ul>
            <form onSubmit={this.handleSubmit}>
-             <input type ='text' id="new-task" value={this.value} name='list' onKeyUpCapture={this.handleChange} placeholder="Ingresa una tarea y oprime Enter" />     
+             <input type ='text' id="new-task" name='list' onKeyDown={this.handleChange} placeholder="Ingresa una tarea y oprime Enter" />     
            </form>
         </div>
       </div>
