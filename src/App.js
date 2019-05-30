@@ -13,8 +13,10 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event){
+    this.setState({
+      texto: event.target.value
+    })
    if(event.key==='Enter'){
-    const list = event.target.list
     const value = event.target.value
     event.target.value = ''
     this.setState({
@@ -39,7 +41,7 @@ class App extends Component {
             {list.map((list) => <li>{list}</li>)}
           </ul>
            <form>
-             <input type ='text' id="new-task" name='list' onKeyPress={this.handleChange} placeholder="Ingresa una tarea y oprime Enter" />     
+             <input type ='text' value={this.texto} id="new-task" name='list' onKeyPress={this.handleChange} placeholder="Ingresa una tarea y oprime Enter" />     
            </form>
         </div>
       </div>
