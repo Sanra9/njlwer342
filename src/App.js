@@ -15,18 +15,23 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    const list = event.target.name
-    const value = event.target.value
-    this.setState({
-      list: [...this.state.list, value]
-    });
+  handleChange(event){
+      const list = event.target.name
+      const value = event.target.value 
+      
+      this.setState({
+        list: [...this.state.list, value]
+    }) 
+  
+      
   }
 
   handleSubmit(event) {
     alert('hola ' + this.state.texto)
     event.preventDefault();
   }
+
+
 
 
   render() {
@@ -39,7 +44,7 @@ class App extends Component {
             {list.map((list) => <li>{list}</li>)}
           </ul>
            <form onSubmit={this.handleSubmit}>
-             <input type ='text' value={this.state.texto} name='list' onChange={this.handleChange}  placeholder="Ingresa una tarea y oprime Enter" />     
+             <input type ='text' value={this.value} name='list' onKeyDown={this.handleChange} placeholder="Ingresa una tarea y oprime Enter" />     
            </form>
         </div>
       </div>
