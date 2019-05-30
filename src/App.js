@@ -19,6 +19,7 @@ class App extends Component {
     this.setState({
       list: [...this.state.list,value]
   })
+  event.preventDefault();
    }            
   }
   handleSubmit(event) {
@@ -36,7 +37,7 @@ class App extends Component {
             <li>Leer un rato</li>
             {list.map((list) => <li>{list}</li>)}
           </ul>
-           <form onKeyPress={this.handleSubmit}>
+           <form>
              <input type ='text' id="new-task" name='list' onKeyPress={this.handleChange} placeholder="Ingresa una tarea y oprime Enter" />     
            </form>
         </div>
