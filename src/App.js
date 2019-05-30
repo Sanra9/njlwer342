@@ -10,7 +10,6 @@ class App extends Component {
       list: [],
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event){
     this.setState({
@@ -24,9 +23,6 @@ class App extends Component {
   })
   event.preventDefault();
    }            
-  }
-  handleSubmit(event) {
-    event.preventDefault();
   }
   render() {
     const { list } = this.state
