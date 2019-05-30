@@ -10,21 +10,18 @@ class App extends Component {
       list: [],
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onKeyPressed = this.onKeyPressed.bind(this);
   }
   handleChange(event){
    if(event.key==='Enter'){
-
     const list = event.target.list
     const value = event.target.value
     this.setState({
       list: [...this.state.list,value]
   })
-
-   }
-            
+   }            
   }
-  handleSubmit(event) {
+  onKeyPressed(event) {
     event.preventDefault();
   }
   render() {
@@ -39,7 +36,7 @@ class App extends Component {
             <li>Leer un rato</li>
             {list.map((list) => <li>{list}</li>)}
           </ul>
-           <form onSubmit={this.handleSubmit}>
+           <form onKeyPressed={this.onKeyPressed}>
              <input type ='text' id="new-task" name='list' onKeyPress={this.handleChange} placeholder="Ingresa una tarea y oprime Enter" />     
            </form>
         </div>
