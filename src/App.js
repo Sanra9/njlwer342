@@ -16,6 +16,7 @@ class App extends Component {
    if(event.key==='Enter'){
     const list = event.target.list
     const value = event.target.value
+    event.target.value = ''
     this.setState({
       list: [...this.state.list,value]
   })
